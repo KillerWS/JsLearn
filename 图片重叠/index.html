@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <img id="dynamicImage" alt="拉拉"/>
+    <script>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+        // 画图
+        var myImg = new Image();
+        myImg.src = './lock.jpg';
+        var bgImg = new Image();
+        bgImg.src = './one.png';
+ 
+        bgImg.onload = function () {
+            // 设置canvas的宽度和高度，默认就是这样
+            // canvas.width = this.width ;
+            // canvas.height = this.height;
+            
+            // 计算居中位置的百分比坐标
+            const centerX = (this.width / 2) * 0.5; // 假设你想在水平方向上居中，并且myImg的宽度是bgImg宽度的50%
+            const centerY = (this.height / 2) * 0.5; // 假设你想在垂直方向上居中，并且myImg的高度是bgImg高度的50%
+
+            document.getElementById("canvas").width = this.width;
+            document.getElementById("canvas").height = this.height;
+            //  ctx.drawImage(图片, x轴, y轴, 绘制图片的宽, 绘制图片的高)
+            ctx.drawImage(bgImg, 0, 0, this.width, this.height)
+            
+            //确定位置
+            //ctx.drawImage(myImg, centerX - (myImg.width / 2), centerY - (myImg.height / 2), myImg.width, myImg.height);
+            ctx.drawImage(myImg, this.width/2-myImg.width/2, this.height/2-myImg.width/2, myImg.width, myImg.height);
+        
+        }
+
+        //将画布内容转换为数据URL
+        const dataURL = canvas.toDataURL('image/jpeg')
+        var imgElement = document.getElementById('dynamicImage');
+        
+        console.log(dataURL)
+        imgElement.src = dataURL;
+        //document.body.appendChild(imgElement);
+        
+    </script>
+</body>
+</html>

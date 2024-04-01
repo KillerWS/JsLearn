@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" style="
+        height:150px;
+        line-height:150px;
+        text-align:center;
+        color: #fff;
+        background-color:#ccc;
+        font-size:80px;">
+        <button id="button" style="width:30%; height: 30%;">button</button>
+    </div>
+    <script>
+        let num = 1;      
+        let click=0;
+        const content = document.getElementById('button');
+        var para1= function count() {
+            console.log("xDD")
+          content.innerHTML = num++;
+        };
+
+        content.addEventListener('click',debounce(para1,2000))
+        content.addEventListener('click',()=>{
+            console.log("点击了",++click)
+        })
+
+        function debounce(func, wait) {
+            
+            let timeout;
+            return function() {
+                const context = this;
+                const args = arguments;
+                //每次点击都重置计时器
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    func.apply(context, args);
+                }, wait);
+            };
+        }
+
+        
+
+        //content.onmousemove = count;
+      </script>
+    
+
+</body>
+
+</html>

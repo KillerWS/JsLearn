@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Offset Example</title>
+<style>
+  .row {
+    display: flex; /* 使用Flexbox布局 */
+    align-items: center; /* 垂直居中 */
+  }
+  .row:not(:last-child) {
+    margin-bottom: 10px; /* 为每一行添加底部外边距，除了最后一行 */
+  }
+  .row:first-child > :not(:first-child) {
+    margin-left: 10px; /* 第一行中，非第一个元素的左边距设置为10px */
+  }
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div>First element (first row)</div>
+  <div>Second element (first row)</div>
+</div>
+
+<div class="row">
+  <div>First element (second row)</div>
+  <div>Second element (second row)</div>
+</div>
+
+</body>
+</html>
