@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log(this); //this->window
+        function fun(){
+            console.log(this.s);
+            }
+            
+        
+            var obj = {
+                s:'1',
+                f:fun
+            }
+        
+            var s = '2';
+        
+            obj.f(); //1
+            fun(); //2
+     </script>
+     <p> xDD </p>
+</body>
+</html>
