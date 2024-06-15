@@ -5,19 +5,31 @@ function Promise(executor){
     self= this;
 
     function resolve(data){
-        console.log(data)
+        
+        if(self.PromiseState !== 'pending') return;
+        
         self.PromiseState = 'fullfilled';//resolved
         self.PromiseResult = data;
 
+        if(self.callbacks.onResolved){
+            self.callbacks.onResolved(data);
+        }
+        
         self.callbacks.forEach(item => {
             item.onResolved(data)
         });
     }
     function reject(data){
+
+        if(self.PromiseState !== 'pending') return;
+
         self.PromiseState = 'rejected';
         self.PromiseResult = data;
 
-        self.callbacks.for
+        self.callbacks.forEach(item => {
+            item.onRejected(data)
+        });
+        
     }
 
 
@@ -30,6 +42,20 @@ function Promise(executor){
 }
 
 Promise.prototype.then = function(onResolved, onRejected){
+    
+    if(this.PromiseState === 'fullfilled'){
+        onResolved(this.PromiseResult);
+    }
 
+    if(this.PromiseState === 'rejected'){
+        onRejected(this.PromiseResult);
+    }
+
+    if(this.PromiseResult === 'pending'){
+        this.callbacks.push({
+            onResolved:onResolved,
+            onRejected:onRejected
+        }) 
+    }
 
 }
