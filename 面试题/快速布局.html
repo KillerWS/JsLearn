@@ -4,6 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function debounce(func, wait) {
+        let timeout;
+
+        return function (...args) {
+            const context = this;
+            
+            clearTimeout(timeout);
+
+            timeout = setTimeout(() => {
+               func(...args); // 不使用 func.apply
+            //  func.apply(context, args);
+            }, wait);
+        };
+        }
+
+        // 定义一个需要防抖的函数
+        function handleResize() {
+        console.log('Window resized');
+        }
+
+        // 创建一个防抖版本的 handleResize 函数
+        const debouncedHandleResize = debounce(handleResize, 3000);
+
+        debouncedHandleResize()
+        // 将防抖版本的函数绑定到 window 的 resize 事件上
+        //window.addEventListener('resize', debouncedHandleResize);
+
+        const obj = {
+        value: 42,
+        getValue: function () {
+            console.log("this.value ");
+            console.log(this.value);
+        },
+        };
+
+
+            const debouncedGetValue = debounce(obj.getValue, 300);
+            debouncedGetValue()
+
+            // window.addEventListener('resize', debouncedGetValue);
+    </script>
     <style>
         *{
             margin:0;

@@ -8,35 +8,18 @@
 </head>
 <body>
     <script>
-        let p = new Promise((resolve, reject)=>{
-            setInterval(()=>{
-                resolve('ok');
-            }, 1000)
-            // resolve('ok');
-            //reject('error')
-            //throw "error";
-        })
-        
-        //console.log(p)
-        const res = p.then(value =>{
-            console.log(value)
-            console.log('123')
-            // return new Promise((resolve, reject)=>{
-            //     resolve("success")
-            //     reject("error")
-            // })
-        }, reason=>{
-            console.warn(reason)
-        })
-        
-        // p.then(value =>{
-        //     alert(value)
-        // }, reason=>{
-        //     alert(reason)
-        // })
-        
-        console.log(res)
-        //console.log(Promise.prototype)
+        const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Promise resolved');
+        }, 2000);
+        });
+
+        promise.then(value=>{
+            console.log(value+" --")
+        });
+        setTimeout(() => {
+        console.log(promise)
+        }, 3000);
     </script>
 </body>
 </html>

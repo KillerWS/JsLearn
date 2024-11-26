@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Element Position Example</title>
+<style>
+  body {
+    height: 2000px; /* 设置一个较大的高度以便于滚动 */
+  }
+  button {
+    margin-top: 1000px; /* 设置按钮距离页面顶部的距离 */
+  }
+</style>
+<h2>sss</h2>
 </head>
 <body>
-    <h2>1.padding 与 margin</h2>
-    
+<button id="myButton">点击获取位置</button>
+
+<script>
+function getElementPosition(element) {
+  const rect = element.getBoundingClientRect();
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const x = rect.left + scrollLeft;
+  const y = rect.top + scrollTop;
+  return { x, y };
+}
+
+const button = document.getElementById('myButton');
+button.addEventListener('click', () => {
+  const position = getElementPosition(button);
+  console.log(`Button position: x=${position.x}, y=${position.y}`);
+});
+</script>
 </body>
 </html>
