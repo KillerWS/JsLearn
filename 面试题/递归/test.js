@@ -5,7 +5,9 @@ function generateCombinations(arr) {
     function backtrack(path, index) {
         // 如果 path 的长度等于 arr 的长度，说明已完成一组组合
         if (index === arr.length) {
+            
             result.push([...path]); // 将 path 的副本加入结果数组
+            console.log(...path)
             return;
         }
 

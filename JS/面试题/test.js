@@ -1,7 +1,13 @@
- function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+//  function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+//   }
+  function sleep(ms){
+    return new Promise((resolve)=>{
+        setInterval(()=>{
+            resolve()
+        }, ms)
+    })
   }
-  
   //return new Promise(resolve => setTimeout(resolve, 1000))
   //return new Promise(resolve => setTimeout(resolve,ms))
   async function example() {

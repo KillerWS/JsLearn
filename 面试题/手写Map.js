@@ -18,6 +18,7 @@
 Array.prototype.myMap = function(callback){
     let result = [];
     console.log(this)
+    console.log(callback)
     for(let i = 0; i < this.length; i++){
         console.log(callback(this[i]));
         //console.log(callback(this[i], i, this))
