@@ -60,6 +60,7 @@ function throttle1(func, limit){
             lastRan = Date.now();
         }else{
             clearTimeout(lastFunc);
+
             lastFunc = setTimeout(()=>{
                 if(Date.now() - lastRan>= limit){
                     func.apply(context, args);
