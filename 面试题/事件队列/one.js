@@ -12,17 +12,16 @@ async function async1() {
     setTimeout(() => {
       console.log('timer2')
     }, 0)
-  
     console.log("async2");
-  
   }
   
   async1();
-  
+    Promise.resolve().then(() => {
+    console.log('timer4')
+  })
+
   setTimeout(() => {
-  
     console.log('timer3')
-  
   }, 0)
   
   console.log("start")

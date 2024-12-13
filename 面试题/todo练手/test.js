@@ -35,3 +35,10 @@ async function async1() {
   }, 0)
   
   console.log("start")
+  
+  async1 start
+  async2
+  start
+  asyn1 end
+  time3
+
