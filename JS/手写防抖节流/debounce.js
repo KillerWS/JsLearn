@@ -11,4 +11,6 @@ function debounce(func,delay){
 
 const deFn = debounce(function(){
     console.log('xD')
-}, 300)
+}, 3000)
+
+

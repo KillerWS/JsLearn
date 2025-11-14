@@ -1,18 +1,18 @@
 //vue2 这样子
 // 对象属性的删除添加无法侦测, 是数组索引的直接修改无法监听
-const obj = {}
-Object.defineProperty(obj, 'key', {
-    get(){
-        console.log("获取key")
-        return 'value'
-    },
-    set(newVal){
-        console.log("设置key: ",newVal)
-    }
-})
+//const obj = {}
+// Object.defineProperty(obj, 'key', {
+//     get(){
+//         console.log("获取key")
+//         return 'value'
+//     },
+//     set(newVal){
+//         console.log("设置key: ",newVal)
+//     }
+// })
 
-obj.key; // 访问 key
-obj.key = 'newValue'; // 设置 key newValue
+// obj.key; // 访问 key
+// obj.key = 'newValue'; // 设置 key newValue
 
 //vue3
 const obj = new Proxy({},{

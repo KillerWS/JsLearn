@@ -76,9 +76,6 @@ function throttle1(func, limit){
 
 
 
-
-
-
 function throttle(func, limit){
     let lastRan;
     let lastFunc; //计时器
@@ -107,3 +104,4 @@ function throttle(func, limit){
     }
 
 }
+
